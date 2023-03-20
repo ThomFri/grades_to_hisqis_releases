@@ -1,0 +1,219 @@
+{
+    "use_easygui": true,
+    "use_file_picker": true,
+    "cache_file": "cache.json",
+    "upload_support": ["xlsx"],
+    "fields": {
+        "sheet_edges": {
+            "start": {
+                "key": "startHISsheet"
+            },
+            "end": {
+                "key": "endHISsheet"
+            }
+        },
+        "sheet_header_cols": {
+            "LNR": {
+                "key": "Examplan.id",
+                "name": "ID",
+                "skip": true,
+                "keep": true
+            },
+            "POR": {
+                "key": "PrüfungsNr.",
+                "name": "PrüfungsNr",
+                "skip": true,
+                "keep": true
+            },
+            "PTI": {
+                "key": "Titel",
+                "name": "Titel",
+                "skip": true,
+                "keep": true
+            },
+            "NNA": {
+                "key": "Nachname",
+                "name": "Nachname",
+                "skip": true,
+                "keep": true
+            },
+            "VNA": {
+                "key": "Vorname",
+                "name": "Vorname",
+                "skip": true,
+                "keep": true
+            },
+            "MNR": {
+                "key": "Matrikelnummer",
+                "name": "Matrikelnummer",
+                "is_sheet_key": true,
+                "skip": false,
+                "type": "int",
+                "format_strict": true,
+                "keep": true
+            },
+            "BEW": {
+                "key": "Leistung",
+                "name": "Leistung/Bewertung/Note",
+                "skip": false,
+                "type": "float<6",
+                "format": ".1f",
+                "format_strict": true
+            },
+            "VRS": {
+                "key": "Versuch",
+                "name": "Versuch",
+                "skip": true,
+                "keep": true
+            },
+            "PST": {
+                "key": "Status",
+                "name": "Status",
+                "skip": true,
+                "type": "dependent",
+                "format": {
+                    "<=4.0": "bestanden",
+                    ">4.0": "nicht bestanden"
+                },
+                "format_strict": false,
+                "keep": true
+            },
+            "BNS": {
+                "key": "Bonus",
+                "name": "Bonus",
+                "skip": true,
+                "keep": true
+            },
+            "SEM": {
+                "key": "Semester",
+                "name": "Semester",
+                "skip": true,
+                "keep": true
+            },
+            "JHR": {
+                "key": "Jahr",
+                "name": "Jahr",
+                "skip": true,
+                "keep": true
+            },
+            "PPR": {
+                "key": "Prüfungsperiode",
+                "name": "Prüfungsperiode",
+                "skip": true,
+                "keep": true
+            },
+            "VMR": {
+                "key": "Vermerk",
+                "name": "Vermerk",
+                "skip": true,
+                "keep": true
+            },
+            "THM": {
+                "key": "Thema",
+                "name": "Thema",
+                "special": "col/fixed",
+                "skip": true
+            },
+            "PDA": {
+                "key": "Beginn",
+                "name": "Beginn",
+                "special": "col/fixed",
+                "skip": true,
+                "type": "date",
+                "format": "%d.%m.%Y",
+                "format_strict": true
+            },
+            "ENG": {
+                "key": "Gepl. Ende",
+                "name": "Geplantes Ende",
+                "special": "col/fixed",
+                "skip": true,
+                "type": "time",
+                "format": "%H:%M",
+                "format_strict": true
+            },
+            "ENT": {
+                "key": "Tatsächl. Ende",
+                "name": "Tatsächliches Ende",
+                "special": "col/fixed",
+                "skip": true,
+                "type": "time",
+                "format": "%H:%M",
+                "format_strict": true
+            }
+        },
+        "grades": {
+            "NE1": {
+                "key": "NE1",
+                "Bewertungsart": "NE1",
+                "name": "Einzelnoten (Format n,n)",
+                "Ausprägungen": [0.0, 1.0, 1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4.0, 4.3, 4.7, 5.0],
+                "Minumum": 1.0,
+                "Maximum": 5.0
+            }
+        },
+        "status": {
+            "NB": {
+                "key": "NB",
+                "name": "Nicht bestanden"
+            },
+            "ZU": {
+                "key": "ZU",
+                "name": "Zugelassen???"
+            }
+        },
+        "notes": {
+            "RT": {
+                "key": "RT",
+                "skip": false,
+                "mappings": {
+                    "ruecktritt": "Ja",
+                    "PST": "zugelassen",
+                    "VMR": "RT"
+                },
+                "name": "Rüccktritt QIS-Anmeldung"
+            },
+            "NAN": {
+                "key": "NAN",
+                "skip": false,
+                "mappings": {
+                    "BEW": 5.0,
+                    "ruecktritt": "Nein",
+                    "PST": "nicht bestanden",
+                    "VMR": "NAN"
+                },
+                "name": "Nicht angetreten N. 5,0/0 Pkt."
+            },
+            "ATT": {
+                "key": "ATT",
+                "skip": false,
+                "mappings": {
+                    "ruecktritt": "Ja",
+                    "PST": "zugelassen",
+                    "VMR": "ATT"
+                },
+                "name": "Rücktritt mit Attest (nicht gezählter Versuch)"
+            },
+            "KNA": {
+                "key": "KNA",
+                "skip": false,
+                "mappings": {
+                    "ruecktritt": "Ja",
+                    "PST": "zugelassen",
+                    "VMR": "KNA"
+                },
+                "name": "Nicht angetreten (nicht gezählter Versuch)"
+            }
+        },
+        "resignations": {
+            "Ja": {
+                "key": "Ja",
+                "name": "Ja"
+            },
+            "Nein": {
+                "key": "Nein",
+                "name": "Nein"
+            }
+        }
+    }
+}
