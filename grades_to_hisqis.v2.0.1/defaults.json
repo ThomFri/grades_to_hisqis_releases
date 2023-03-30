@@ -76,7 +76,7 @@
                     ">4.0": "nicht bestanden"
                 },
                 "format_strict": false,
-                "keep": true
+                "keep": false
             },
             "BNS": {
                 "key": "Bonus",
@@ -106,7 +106,7 @@
                 "key": "Vermerk",
                 "name": "Vermerk",
                 "skip": true,
-                "keep": true
+                "keep": false
             },
             "THM": {
                 "key": "Thema",
