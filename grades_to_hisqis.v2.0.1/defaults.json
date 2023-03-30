@@ -2,7 +2,7 @@
     "use_easygui": true,
     "use_file_picker": true,
     "cache_file": "cache.json",
-    "upload_support": ["xls", "xlsx"],
+    "upload_support": ["xlsx"],
     "fields": {
         "sheet_edges": {
             "start": {
