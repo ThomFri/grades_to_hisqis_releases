@@ -2,7 +2,7 @@
     "use_easygui": true,
     "use_file_picker": true,
     "cache_file": "cache.json",
-    "upload_support": ["xlsx"],
+    "upload_support": ["xls", "xlsx"],
     "fields": {
         "sheet_edges": {
             "start": {
@@ -56,7 +56,7 @@
                 "key": "Leistung",
                 "name": "Leistung/Bewertung/Note",
                 "skip": false,
-                "type": "float<6",
+                "type": "float<6_str_upper",
                 "format": ".1f",
                 "format_strict": true
             },
@@ -76,7 +76,7 @@
                     ">4.0": "nicht bestanden"
                 },
                 "format_strict": false,
-                "keep": false
+                "keep": true
             },
             "BNS": {
                 "key": "Bonus",
@@ -106,7 +106,7 @@
                 "key": "Vermerk",
                 "name": "Vermerk",
                 "skip": true,
-                "keep": false
+                "keep": true
             },
             "THM": {
                 "key": "Thema",
@@ -167,6 +167,7 @@
                 "key": "RT",
                 "skip": false,
                 "mappings": {
+                    "BEW": "RT",
                     "ruecktritt": "Ja",
                     "PST": "zugelassen",
                     "VMR": "RT"
@@ -177,7 +178,8 @@
                 "key": "NAN",
                 "skip": false,
                 "mappings": {
-                    "BEW": 5.0,
+                    "BEW": "NAN",
+                    "-BEW": 5.0,
                     "ruecktritt": "Nein",
                     "PST": "nicht bestanden",
                     "VMR": "NAN"
@@ -188,6 +190,7 @@
                 "key": "ATT",
                 "skip": false,
                 "mappings": {
+                    "BEW": "ATT",
                     "ruecktritt": "Ja",
                     "PST": "zugelassen",
                     "VMR": "ATT"
@@ -198,6 +201,7 @@
                 "key": "KNA",
                 "skip": false,
                 "mappings": {
+                    "BEW": "KNA",
                     "ruecktritt": "Ja",
                     "PST": "zugelassen",
                     "VMR": "KNA"
